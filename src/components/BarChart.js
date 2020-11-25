@@ -1,23 +1,26 @@
 import React from 'react';
 import { scaleLinear, max, scaleBand, axisLeft, axisBottom, select } from 'd3';
+import Data from '../store/mainFuelData';
+import MinorData from '../store/minorFuelData';
 
 class BarChart extends React.Component {
 	constructor(props) {
 		super(props);
-		this.createBarChart = this.createBarChart.bind(this);
+		this.mainBarChart = this.mainBarChart.bind(this);
+		this.state = { currentData: 'main' };
 	}
 
 	componentDidMount() {
-		this.createBarChart();
+		this.mainBarChart();
 	}
 
 	componentDidUpdate() {
-		this.createBarChart();
+		this.mainBarChart();
 	}
 
-	createBarChart() {
-		const node = this.node;
-		const data = this.props.data;
+	mainBarChart() {
+		const svg = select('svg');
+		const data = this.state.currentData === 'main' ? Data : MinorData;
 		const width = this.props.width;
 		const height = this.props.height;
 		const xValue = (data) => data.amount;
@@ -25,8 +28,6 @@ class BarChart extends React.Component {
 		const margin = { top: 20, right: 20, bottom: 20, left: 100 };
 		const innerWidth = width - margin.left - margin.right;
 		const innerHeight = height - margin.top - margin.bottom;
-
-		console.log(node);
 
 		const xScale = scaleLinear()
 			.domain([0, max(data, xValue)])
@@ -37,20 +38,21 @@ class BarChart extends React.Component {
 			.range([0, innerHeight])
 			.padding(0.1);
 
-		const g = select(node)
-			.append('svg')
-			.attr('transform', `translate(${margin.left}, ${margin.top})`);
+		const g = svg.attr(
+			'transform',
+			`translate(${margin.left}, ${margin.top})`
+		);
 
-		g.append('g').call(axisLeft(yScale));
-		g.append('g')
+		g.select('.AxisLeft').call(axisLeft(yScale));
+		g.select('.AxisBottom')
 			.call(axisBottom(xScale))
 			.attr('transform', `translate(0, ${innerHeight})`);
 
-		select(node)
-			.selectAll('rect')
+		g.selectAll('rect')
 			.data(data)
-			.enter()
-			.append('rect')
+			.join('rect')
+			.transition()
+			.duration(1000)
 			.attr('y', (data) => yScale(yValue(data)))
 			.attr('width', (data) => xScale(xValue(data)))
 			.attr('height', yScale.bandwidth());
@@ -58,7 +60,23 @@ class BarChart extends React.Component {
 
 	render() {
 		return (
-			<svg ref={(node) => (this.node = node)} width={960} height={500} />
+			<>
+				<div className="ButtonContainer">
+					<button onClick={() => this.setState({ currentData: 'main' })}>
+						Main fuel
+					</button>
+					<button onClick={() => this.setState({ currentData: 'minor' })}>
+						Miscellaneous fuel
+					</button>
+				</div>
+				<div className="ChartContainer">
+					<h1>Composition of the types of fuel used in the Netherlands</h1>
+					<svg width={960} height={500}>
+						<g className="AxisLeft"></g>
+						<g className="AxisBottom"></g>
+					</svg>
+				</div>
+			</>
 		);
 	}
 }
