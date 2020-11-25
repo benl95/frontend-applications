@@ -32,14 +32,19 @@ class BarChart extends React.Component {
 			.domain([0, max(data, xValue)])
 			.range([0, innerWidth]);
 
-		const yScale = scaleBand().domain(data.map(yValue)).range([0, innerHeight]).padding(0.1);
+		const yScale = scaleBand()
+			.domain(data.map(yValue))
+			.range([0, innerHeight])
+			.padding(0.1);
 
 		const g = select(node)
 			.append('svg')
 			.attr('transform', `translate(${margin.left}, ${margin.top})`);
 
 		g.append('g').call(axisLeft(yScale));
-		g.append('g').call(axisBottom(xScale)).attr('transform', `translate(0, ${innerHeight})`);
+		g.append('g')
+			.call(axisBottom(xScale))
+			.attr('transform', `translate(0, ${innerHeight})`);
 
 		select(node)
 			.selectAll('rect')
@@ -52,7 +57,9 @@ class BarChart extends React.Component {
 	}
 
 	render() {
-		return <svg ref={(node) => (this.node = node)} width={960} height={500}></svg>;
+		return (
+			<svg ref={(node) => (this.node = node)} width={960} height={500} />
+		);
 	}
 }
 
