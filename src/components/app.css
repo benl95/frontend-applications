@@ -1,0 +1,14 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#root h1 {
+	font-family: 'Castoro', sans-serif;
+}
+
+#root {
+	display: grid;
+	justify-content: center;
+}
