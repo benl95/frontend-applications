@@ -1,13 +1,13 @@
 import React from 'react';
 import { scaleLinear, max, scaleBand, axisLeft, axisBottom, select } from 'd3';
-import Data from '../store/mainFuelData';
-import MinorData from '../store/minorFuelData';
 
+// Credits to Jonah Meijers for helping me with the update function of the barchart
 class BarChart extends React.Component {
 	constructor(props) {
 		super(props);
 		this.mainBarChart = this.mainBarChart.bind(this);
 		this.state = { currentData: 'main' };
+		this.ref = React.createRef();
 	}
 
 	componentDidMount() {
@@ -19,12 +19,15 @@ class BarChart extends React.Component {
 	}
 
 	mainBarChart() {
-		const svg = select('svg');
-		const data = this.state.currentData === 'main' ? Data : MinorData;
+		const svg = select(this.ref.current);
+		const data =
+			this.state.currentData === 'main'
+				? this.props.MainData
+				: this.props.MinorData;
 		const width = this.props.width;
 		const height = this.props.height;
-		const xValue = (data) => data.amount;
-		const yValue = (data) => data.fuel;
+		const xValue = (data) => data[this.props.xAxis];
+		const yValue = (data) => data[this.props.yAxis];
 		const margin = { top: 20, right: 20, bottom: 20, left: 100 };
 		const innerWidth = width - margin.left - margin.right;
 		const innerHeight = height - margin.top - margin.bottom;
@@ -60,23 +63,23 @@ class BarChart extends React.Component {
 
 	render() {
 		return (
-			<>
+			<div>
 				<div className="ButtonContainer">
 					<button onClick={() => this.setState({ currentData: 'main' })}>
-						Main fuel
+						{this.props.FirstButton}
 					</button>
 					<button onClick={() => this.setState({ currentData: 'minor' })}>
-						Miscellaneous fuel
+						{this.props.SecondButton}
 					</button>
 				</div>
 				<div className="ChartContainer">
-					<h1>Composition of the types of fuel used in the Netherlands</h1>
-					<svg width={960} height={500}>
+					<h1>{this.props.text}</h1>
+					<svg ref={this.ref} width={960} height={500}>
 						<g className="AxisLeft"></g>
 						<g className="AxisBottom"></g>
 					</svg>
 				</div>
-			</>
+			</div>
 		);
 	}
 }
