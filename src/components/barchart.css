@@ -1,0 +1,36 @@
+h1 {
+	font-size: 16px;
+}
+
+svg rect {
+	fill: black;
+}
+
+.ButtonContainer {
+	width: 225px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.ButtonContainer button {
+	box-sizing: border-box;
+	color: #000000;
+	text-align: center;
+	border: none;
+	background-color: #cccccc;
+	height: 2em;
+	font-weight: 400;
+	outline: none;
+	padding: 0 5px 0 5px;
+}
+
+.ButtonContainer button:hover {
+	background-color: darkgray;
+}
+
+.text-container h1 {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	font-size: 16px;
+	text-align: center;
+}
