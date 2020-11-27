@@ -80,7 +80,7 @@ People and courses that helped out:
 
 -  Support group 6
 -  [Modern React with Redux](https://www.udemy.com/course/react-redux/)
--  [React Docs](https://reactjs.org/docs/getting-started.html)\
+-  [React Docs](https://reactjs.org/docs/getting-started.html)
 
 # License
 
