@@ -78,7 +78,12 @@ class BarChart extends React.Component {
 					</button>
 				</div>
 				<div className="ChartContainer">
-					<svg ref={this.ref} width={660} height={330}>
+					<svg
+						ref={this.ref}
+						width={660}
+						height={330}
+						style={{ overflow: 'visible' }}
+					>
 						<g className="AxisLeft"></g>
 						<g className="AxisBottom"></g>
 					</svg>
