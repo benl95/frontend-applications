@@ -31,7 +31,7 @@ class App extends React.Component {
 				/>
 				<Paragraph text="Zoals uit de bovenstaande cijfers te zien zijn voertuigen die rijden op fossiele brandstofffen nog steeds de grootste groep onder de voertuigen in Nederland. Hoe zit het met de hoogte van de CO2 uitstoot van deze auto's?" />
 
-				<Paragraph text="De grootste groep onder de auto's zit tussen de 37-161mg per gereden kilometer met 37531 van de 1000.00. Op de tweede plek staat 162-261mg per gereden kilometer met 13241. Overigens moet er bij vermeld worden dat bij 47.9% van de 1000.00 de CO2 uitstoot onbekend is. Verder kunnen we zien dat het gros van de auto's een emissieklasse heeft van 6 met 27897. Ook hierbij mist er bij de helft van de auto's data over de emissieklasse." />
+				<Paragraph text="De grootste groep onder de auto's zit tussen de 37-161mg per gereden kilometer met 37531 van de 1000.00. Op de tweede plek staat 162-261g per gereden kilometer met 13241. Overigens moet er bij vermeld worden dat bij 47.9% van de 1000.00 de CO2 uitstoot onbekend is. Verder kunnen we zien dat het gros van de auto's een emissieklasse heeft van 6 met 27897. Ook hierbij mist er bij de helft van de auto's data over de emissieklasse." />
 
 				<BarChart
 					width={660}
