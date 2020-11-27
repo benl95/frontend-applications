@@ -3,7 +3,7 @@ h1 {
 }
 
 svg rect {
-	fill: black;
+	fill: #2c3e50;
 }
 
 .ButtonContainer {
@@ -33,4 +33,5 @@ svg rect {
 	margin-bottom: 1.5em;
 	font-size: 16px;
 	text-align: center;
+	font-family: 'Times';
 }
