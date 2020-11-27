@@ -42,7 +42,9 @@ The variables are used as following:
 
 # Packages used
 
-d3: ^6.2.0, react: ^17.0.1, react-dom: ^17.0.1
+* d3: ^6.2.0 
+* react: ^17.0.1 
+* react-dom: ^17.0.1
 
 # Installation guide
 
