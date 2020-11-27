@@ -5,6 +5,8 @@ class Header extends React.Component {
 		const styleConfig = {
 			fontSize: '30px',
 			textAlign: 'center',
+			marginBottom: '0.3em',
+			fontFamily: 'Times',
 		};
 		return (
 			<div>
