@@ -39,6 +39,8 @@ The variables are used as following:
    the bar chart.
 -  CO2 emission = retrieve the records of the CO2 emission of each car, divide
    these in groups and render the data to the barchart.
+   
+The only data that had to be cleaned were Emission code and CO2 emission. These initally came as strings and I converted them to integers. The undefined results I converted to null
 
 # Packages used
 
@@ -70,10 +72,16 @@ The application can now be viewed on https://localhost:3000
 
 https://ben-fa.netlify.app/
 
+<img width="865" alt="Schermafbeelding 2020-11-27 om 16 07 01" src="https://user-images.githubusercontent.com/43675725/100462491-a41fb300-30ca-11eb-82b3-1e54a67d42ba.png">
+
 # Sources
 
 People and courses that helped out:
 
 -  Support group 6
 -  [Modern React with Redux](https://www.udemy.com/course/react-redux/)
--  [React Docs](https://reactjs.org/docs/getting-started.html)
+-  [React Docs](https://reactjs.org/docs/getting-started.html)\
+
+# License
+
+MIT
