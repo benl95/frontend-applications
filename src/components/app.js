@@ -28,6 +28,8 @@ class App extends React.Component {
 					MinorData={MinorFuel}
 					xAxis="amount"
 					yAxis="fuel"
+					yAxisLabel="Fuel type"
+					xAxisLabel="Amount of cars"
 				/>
 				<Paragraph text="Zoals uit de bovenstaande cijfers te zien zijn voertuigen die rijden op fossiele brandstofffen nog steeds de grootste groep onder de voertuigen in Nederland. Hoe zit het met de hoogte van de CO2 uitstoot van deze auto's?" />
 
@@ -43,6 +45,8 @@ class App extends React.Component {
 					MinorData={Co2Emission}
 					xAxis="amount"
 					yAxis="group"
+					yAxisLabel="Group"
+					xAxisLabel="Amount of cars"
 				/>
 			</div>
 		);
