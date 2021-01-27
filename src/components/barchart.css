@@ -35,3 +35,11 @@ svg rect {
 	text-align: center;
 	font-family: 'Times';
 }
+
+text {
+	font-family: 'Times';
+}
+
+.ChartContainer {
+	margin-bottom: 3em;
+}
